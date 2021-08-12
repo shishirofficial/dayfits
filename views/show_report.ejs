@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;700&display=swap" rel="stylesheet">
+	</head>
+	
+<body>
+	<h1 style="text-align:center;font-family: 'Oswald', sans-serif;">	Enrollment Number : <%=roll_no%></h1>
+	<h2 style="text-align:center;font-family: 'Oswald', sans-serif;">(Month: <%=month%>)</h2>
+	<hr><br>
+	<div style="font-family: 'Gugi', cursive;">
+	<h3>Absent on <%=absent%> days</h3>
+	<h3>Fit on <%=fit%> days</h3>
+	<h3>Unfit on <%=unfit%> days</h3>
+	</div>
+	<hr><br><br>
+	<table class="Table">
+			<tr>
+				<th>Date</th>
+				<th>Staus</th>
+			</tr>
+			<% for(let i=0;i<dates.length;i++){if(data[dates[i]]=='ABSENT'){%>
+			<tr class="table-danger">
+			<td><%=dates[i]%></td>
+			<td><%=data[dates[i]]%></td>
+			</tr>
+		   <%}else if(data[dates[i]]=='UNFIT'){%>
+			<tr class="table-warning">
+			<td><%=dates[i]%></td>
+			<td><%=data[dates[i]]%></td>
+			</tr>
+			<%}else if(data[dates[i]]=='FIT'){%>
+			<tr class="table-info">
+			<td><%=dates[i]%></td>
+			<td><%=data[dates[i]]%></td>
+			</tr><%}}%>
+		</table>
+</body>
